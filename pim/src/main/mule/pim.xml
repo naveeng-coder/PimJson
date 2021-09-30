@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:netsuite="http://www.mulesoft.org/schema/mule/netsuite"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/netsuite http://www.mulesoft.org/schema/mule/netsuite/current/mule-netsuite.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="d2188361-a432-4218-987c-68974b022e5d" >
+		<http:listener-connection host="0.0.0.0" port="8083" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="f6f7530a-c56f-4833-adc6-b111d5437c91" basePath="/pimVarient" >
+		<http:request-connection host="localhost" port="8081" />
+	</http:request-config>
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="c36fdf0a-e898-4f96-834f-1593a55e8fca" >
+		<db:my-sql-connection host="localhost" port="3306" user="root" password="123456" database="sapmule1" />
+	</db:config>
+	<flow name="pim-variantFlow1" doc:id="32d373cc-5431-4df5-a959-11a5a7804a83" >
+		<http:listener doc:name="Listener/8083/pimv" doc:id="86a56d77-9a1d-4d44-870f-766f54f25a45" config-ref="HTTP_Listener_config" path="/pimv"/>
+<!-- 		<http:request method="GET" doc:name="Request" doc:id="636718bd-0603-4ed9-aa70-8f884f39f6f7" config-ref="HTTP_Request_configuration" path="/"/>
+ -->		<ee:transform doc:name="Transform Message" doc:id="b1cb7e70-4580-4e4f-9a00-baca3b61b29b">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+			<ee:variables>
+				<ee:set-variable variableName="id"><![CDATA[payload.id]]></ee:set-variable>
+			</ee:variables>
+		
+</ee:transform>
+		<db:select doc:name="Copy_of_Select" doc:id="50f5e377-6450-4881-9d32-78411e9ed1ca" config-ref="Database_Config" transactionalAction="NOT_SUPPORTED" target="dbResult">
+			<db:sql ><![CDATA[SELECT * FROM sapmule1.vendormasterqflo Where VendorNo = :VendorNo;
+]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+"VendorNo" : payload.id
+
+}]]]></db:input-parameters>
+		</db:select>
+		<choice doc:name="Choice" doc:id="7ce30041-3a1c-48a1-822c-07ed9c7a30ec" >
+			<when expression="#[sizeOf(vars.dbResult default[]) &gt; 0]">
+				<ee:transform doc:name="Copy_of_Transform Message" doc:id="b19132de-3665-41df-aa78-112a6c56b521" >
+					<ee:message >
+						<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+				<db:update doc:name="Update" doc:id="8db6354e-d3ef-44f5-ad13-6f85246c9d32" config-ref="Database_Config" target="dbResult">
+					<db:sql ><![CDATA[UPDATE sapmule1.vendormasterqflo
+SET payload= :payload, Version = :Version Where VendorNo = :VendorNo]]></db:sql>
+					<db:input-parameters ><![CDATA[#[{
+	"VendorNo" : vars.dbResult[0].VendorNo,
+	"payload" : payload.^raw as String,
+	"Version" : (vars.dbResult[0].Version as Number default 0)+1 
+
+}]]]></db:input-parameters>
+				</db:update>
+			</when>
+			<otherwise >
+				<ee:transform doc:name="Transform Message" doc:id="1f965be4-8611-4e1d-8083-c3eae06a3584">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+				<db:insert doc:name="Insert" doc:id="d8bbc1da-8189-4f28-85d5-95e3ddf7225d" config-ref="Database_Config" transactionalAction="NOT_SUPPORTED" target="dbResult">
+			<db:sql><![CDATA[INSERT INTO sapmule1.vendormasterqflo (`vendorNo`, `payload`, `Modified_Date`, `Last_upd_user_id`, `Last_upd_tms`, `Last_upd_program_id`, `Ready_To_Process`, `Version`) VALUES (:vendorNo, :payload, :ModifiedDate, :LastUpdUserId, :Last_upd_tms, :programId, :Ready_To_Process, :Version);]]></db:sql>
+			<db:input-parameters><![CDATA[#[{
+	vendorNo : payload.id,
+	payload : payload.^raw as String,
+	ModifiedDate : now() as String,
+	LastUpdUserId : "Mulesoft",
+	Last_upd_tms : now() as String,
+	programId : "one",
+	Ready_To_Process : "False",
+	Version : 1
+	
+	}]]]></db:input-parameters>
+		</db:insert>
+			</otherwise>
+		</choice>
+		<db:select doc:name="Copy_of_Select" doc:id="6ec07730-aaa4-4e0b-91b2-bf0d29e596a2" config-ref="Database_Config" transactionalAction="NOT_SUPPORTED" >
+			<db:sql ><![CDATA[SELECT * FROM sapmule1.vendormasterqflo Where VendorNo = :VendorNo;
+]]></db:sql>
+			<db:input-parameters ><![CDATA[#[{
+"VendorNo" : vars.id
+
+}]]]></db:input-parameters>
+		</db:select>
+		<ee:transform doc:name="Transform Message" doc:id="f400c5ab-5878-484d-89e1-8076decd6c0a" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"a" : payload[0].VendorNo,
+	"payload" : read (payload[0].Payload, "application/json") 
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		
+	
+</flow>
+</mule>

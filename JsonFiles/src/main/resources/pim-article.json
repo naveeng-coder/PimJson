@@ -1,0 +1,76 @@
+{
+  "id": "2019SUFAFA_MW0MW11674MQ4003",
+  "SalesChannels": [],
+  "AclFlag": "INHERITED",
+  "SupplierAID": "2019SUFAFA_MW0MW11674MQ4003",
+  "EAN": "8719859422315",
+  "CurrentStatus": {
+    "externalCode": null,
+    "keySynonyms": "[]",
+    "label": "01New",
+    "key": "100"
+  },
+  "EntityId": 1000,
+  "KitParent": false,
+  "KitComponent": false,
+  "SoldOnlyInKits": false,
+  "SAPVariantNr": "MW0MW11674MQ4003",
+  "SizeName": "M",
+  "SizeIndex": 4,
+  "CommodityCode": {
+    "Code": "6110209100",
+    "Name": "6110209100-Mensorboyscottonknittedsweatercardigan"
+  },
+  "VariantToEcom": false,
+  "FMSCollection": {
+    "Code": "FA",
+    "Name": "Fall"
+  },
+  "FMSSeasonYear": "2019",
+  "FMSSeason": {
+    "Code": "SUFA",
+    "Name": "Summer/Fall"
+  },
+  "Article_SalesStatus": {
+    "THE1": {
+      "Res_LK_Int_01": 0,
+      "Counter": "2",
+      "SalesOrg": "THE1",
+      "DistributionChannel": "01",
+      "SalesStatus": "M1",
+      "ValidFrom": 1574636400000
+    },
+    "INLC": {
+      "Res_LK_Int_01": 0,
+      "Counter": "1",
+      "SalesOrg": "INLC",
+      "DistributionChannel": "01",
+      "SalesStatus": "00",
+      "ValidFrom": 1542668400000
+    },
+    "IsAvailable": "true",
+    "IsSoldOut": "false"
+  },
+  "Classifier": null,
+  "Language": {
+    "externalCode": "eng",
+    "keySynonyms": "[eng,en,en_GB,en_EN,en_US]",
+    "label": "English",
+    "key": "9"
+  },
+  "Territory": {
+    "externalCode": "WORLD",
+    "keySynonyms": "[]",
+    "label": "Worldwide",
+    "key": "WORLD"
+  },
+  "Weight": 0.32,
+  "GrossWeight": 0.33,
+  "CreationDate": 1544280536250,
+  "ModificationDate": 1594181131630,
+  "DeletionDate": 253402210800000,
+  "ProductNo": "2019SUFAFA_MW0MW11674",
+  "OptionNumber": "MW0MW11674MQ4",
+  "VariantNo": "2019SUFAFA_MW0MW11674MQ4",
+  "StyleNumber": "MW0MW11674"
+}

@@ -1,0 +1,130 @@
+{
+  "ROWTIME": 1594392917492,
+  "ROWKEY": "2019WISPSP_K60K605510",
+  "id": "2019WISPSP_K60K605510",
+  "SalesChannels": [],
+  "AclFlag": "INHERITED",
+  "ProductNo": "2019WISPSP_K60K605510",
+  "EntityId": 1100,
+  "Brand": {
+    "Code": "CKEU",
+    "Name": "Calvin Klein EU"
+  },
+  "Division": {
+    "Code": "70",
+    "Name": "70 - CK Accessories"
+  },
+  "StyleName": "SMU 2CM METAL LOOP BELT",
+  "World": {
+    "Code": "M2",
+    "Name": "Accessories"
+  },
+  "Gender": {
+    "Code": "40",
+    "Name": "Women"
+  },
+  "Lifestyle": {
+    "Code": "45",
+    "Name": "Calvin Klein"
+  },
+  "Business": {
+    "Code": "05",
+    "Name": "Sportswear"
+  },
+  "ProductGroup": {
+    "Code": "50",
+    "Name": "Belts"
+  },
+  "SubProductGroup": {
+    "Code": "76",
+    "Name": "Belts"
+  },
+  "MHCode": "M2 40 45 05 50 76",
+  "MerchandiseCategory": {
+    "Code": "D704050",
+    "Name": "D704050"
+  },
+  "Model": "SMU GERMANY",
+  "Program": "SMU GERMANY",
+  "Label": {
+    "Code": "45",
+    "Name": "CALVIN KLEIN"
+  },
+  "BaseSize": "75",
+  "SAPSizeCode": "PH05",
+  "ManualUpload": false,
+  "MigratedStyle": false,
+  "PackType": {
+    "Code": "F",
+    "Name": "Flat"
+  },
+  "StyleCode": "K60K605510",
+  "SizeRange": "75;80;85;90;95;100",
+  "GarmentType": {
+    "Code": "Leather",
+    "Name": "Leather"
+  },
+  "GarmentSubType": {
+    "Code": "Leather",
+    "Name": "Leather"
+  },
+  "MarketingMainMaterialSustainable": false,
+  "SeasonCodeAFS": "B91",
+  "UniqueIdentifierResponse": "2019WISPSP_K60K605510_20190111053030",
+  "MaterialComposition": "LE_100",
+  "UnitOfMeasure": {
+    "Code": "PCE",
+    "Name": "PCE"
+  },
+  "Season": "Spring 2019",
+  "FMSCollection": {
+    "Code": "SP",
+    "Name": "Spring"
+  },
+  "FMSSeasonYear": "2019",
+  "FMSSeason": {
+    "Code": "WISP",
+    "Name": "Winter/Spring"
+  },
+  "ExternalMaterialGroup": {
+    "Code": "K6",
+    "Name": "K6"
+  },
+  "MarketingMainMaterial": "BELT COW LEATHER",
+  "ProductCluster": {
+    "Code": "16",
+    "Name": "Soft Accessories"
+  },
+  "Innovation": false,
+  "Classifier": null,
+  "Language": {
+    "externalCode": "eng",
+    "keySynonyms": "[eng, en, en_GB, en_EN, en_US]",
+    "label": "English",
+    "key": "9"
+  },
+  "Territory": {
+    "externalCode": "WORLD",
+    "keySynonyms": "[]",
+    "label": "Worldwide",
+    "key": "WORLD"
+  },
+  "Length": 0,
+  "Height": 0,
+  "Width": 0,
+  "Dimensions": "0.00 x 0.00 x 0.00",
+  "LanguageID": {
+    "externalCode": "eng",
+    "keySynonyms": "[eng, en, en_GB, en_EN, en_US]",
+    "label": "English",
+    "key": "9"
+  },
+  "Res_LK_Int_01": 0,
+  "Res_LK_Text100_01": "DEFAULT",
+  "FullComposition": "100% Leather",
+  "MaterialCompositionDescr": "Leather",
+  "ProductDescrDivision": [],
+  "CreationDate": 1547296210550,
+  "ModificationDate": 1572990973100,
+  "DeletionDate": 253402210800000
+}

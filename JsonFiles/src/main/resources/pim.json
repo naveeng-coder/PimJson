@@ -1,0 +1,183 @@
+{
+  "id": "2019SUFASU_K50K504877910",
+  "SalesChannels": [
+    "B2B",
+    "SELLIN"
+  ],
+  "AclFlag": "INHERITED",
+  "VariantNo": "2019SUFASU_K50K504877910",
+  "EntityId": 1200,
+  "OptionType": {
+    "Code": "OP1",
+    "Name": "Seasonal"
+  },
+  "ColorDescription": "WHITE WITH CK REPEAT/RED",
+  "PricePoint": {
+    "Code": "HG",
+    "Name": "High"
+  },
+  "Fashionability": {
+    "Code": "002",
+    "Name": "Seasonals"
+  },
+  "ActiveOption": true,
+  "InternationalOption": false,
+  "Updated": false,
+  "Addition": false,
+  "CTPMonth": "June",
+  "IntroDate": 1557871200000,
+  "LLO": 439,
+  "MainColor": {
+    "Code": "WHT",
+    "Name": "White"
+  },
+  "ColorType": {
+    "Code": "Solids",
+    "Name": "Solids"
+  },
+  "ManualUpload": false,
+  "SentToSAP": 1560780966680,
+  "DropDate": 1557871200000,
+  "MarketSellIn": "CK07, INCK",
+  "OptionCode": "K50K504877910",
+  "ColorCode": "910",
+  "CountryOfDesign": {
+    "Code": "005",
+    "Name": "005 - CK EU"
+  },
+  "OptionToSellIn": true,
+  "CountryOfOrigin": {
+    "Code": "CN",
+    "Name": "China"
+  },
+  "KeepSoldOut": false,
+  "PriceBySizeGroup": false,
+  "CommodityCode": {
+    "Code": "6505009090",
+    "Name": "6505009090 - Other headgear"
+  },
+  "FMSTheme": "0515",
+  "UniqueIdentifierResponse": "2019SUFASU_K50K504877910_20181129040021",
+  "CarryOver": false,
+  "Cancelled": false,
+  "Market": {
+    "EU": "Europe Market",
+    "IM": "International Market"
+  },
+  "ReadyForSellIn": true,
+  "DTBCode": {
+    "Code": "115700",
+    "Name": "115700 - Mens Clothing accessories Hat Cap"
+  },
+  "MerchTargetQuantity": 0,
+  "LandedPriceOneOne": 7.4,
+  "LandedPriceHedge": 6.6,
+  "FMSSeasonYear": "2019",
+  "FMSSeason": {
+    "Code": "SUFA",
+    "Name": "Summer/Fall"
+  },
+  "FMSCollection": {
+    "Code": "SU",
+    "Name": "Summer/Pre-Fall"
+  },
+  "SoldOut": false,
+  "DeliveryMonth": "May",
+  "DirectOrderCatalog": true,
+  "ForwardOrderCatalog": false,
+  "B2BDirectOrderActive": true,
+  "B2BForwardOrderActive": false,
+  "B2BSequence": 1,
+  "ReadyForEcom": false,
+  "OptionToEcom": false,
+  "ReadyForB2B": true,
+  "OptionToB2B": true,
+  "ReadyForWholesale": false,
+  "OptionToWholesale": false,
+  "Classifier": null,
+  "Language": {
+    "externalCode": "eng",
+    "keySynonyms": "[eng, en, en_GB, en_EN, en_US]",
+    "label": "English",
+    "key": "9"
+  },
+  "Territory": {
+    "externalCode": "WORLD",
+    "keySynonyms": "[]",
+    "label": "Worldwide",
+    "key": "WORLD"
+  },
+  "Weight": 0.09,
+  "GrossWeight": 0.24,
+  "LanguageID": {
+    "externalCode": "eng",
+    "keySynonyms": "[eng, en, en_GB, en_EN, en_US]",
+    "label": "English",
+    "key": "9"
+  },
+  "Res_LK_Int_01": 0,
+  "Res_LK_Text100_01": "DEFAULT",
+  "VariantMediaAssetMap": {
+    "back": {
+      "externalCode": "back",
+      "label": "Back",
+      "key": "_B",
+      "url": "http://s7g10.scene7.com/is/image/TommyHilfigerEU//K50K504877910_B_B9270?$linebookPresets$"
+    },
+    "detail3": {
+      "externalCode": "detail3",
+      "label": "Detail 3",
+      "key": "_D3",
+      "url": "http://s7g10.scene7.com/is/image/TommyHilfigerEU//K50K504877910_D3_B9270?$linebookPresets$"
+    },
+    "front": {
+      "externalCode": "front",
+      "label": "Front",
+      "key": "_F",
+      "url": "http://s7g10.scene7.com/is/image/TommyHilfigerEU//K50K504877910_F_B9270?$linebookPresets$"
+    },
+    "inside": {
+      "externalCode": "inside",
+      "label": "Inside 1",
+      "key": "_I",
+      "url": "http://s7g10.scene7.com/is/image/TommyHilfigerEU//K50K504877910_I_B9270?$linebookPresets$"
+    }
+  },
+  "CreationDate": 1534855002200,
+  "ModificationDate": 1591801235990,
+  "DeletionDate": 253402210800000,
+  "OptionStatus": {
+    "CK07": {
+      "IsAvailable": true,
+      "IsCancelled": false,
+      "DistributionChannel": "01",
+      "IsSoldOut": false,
+      "Code": "10",
+      "Translations": {
+        "[eng, en, en_GB, en_EN, en_US]": "Open"
+      },
+      "Name": "Open"
+    },
+    "THE1": {
+      "DistributionChannel": "01"
+    },
+    "PBE1": {
+      "DistributionChannel": "01"
+    },
+    "INLC": {
+      "DistributionChannel": "01"
+    },
+    "INCK": {
+      "IsAvailable": false,
+      "IsCancelled": false,
+      "DistributionChannel": "01",
+      "IsSoldOut": false,
+      "Code": "20",
+      "Translations": {
+        "[eng, en, en_GB, en_EN, en_US]": "Closed"
+      },
+      "Name": "Closed"
+    }
+  },
+  "ProductNo": "2019SUFASU_K50K504877"
+}
