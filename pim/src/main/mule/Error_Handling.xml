@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<error-handler name="ErrorHandlingError_Handler" doc:id="567e3d48-53a2-49cf-af03-cded371b7fcc" >
+		<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="231b74d4-379f-4947-8770-ff77aa4a0422" type="DB:CONNECTIVITY, DB:RETRY_EXHAUSTED">
+			<ee:transform doc:name="Transform Message" doc:id="bbec3e12-f4ba-474b-abe3-0ab936fd4974" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"Message" : "Fail to retrive the data from Internal Storage "
+}]]></ee:set-payload>
+				</ee:message>
+			</ee:transform>
+		</on-error-propagate>
+		<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="162c66a2-736b-44af-9430-7ef367939e79" type="HTTP:BAD_REQUEST">
+			<ee:transform doc:name="Transform Message" doc:id="d40e6e14-ee88-494f-95b5-b28b9edb1da4" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+	"Message" : "Please give the proper url"
+}]]></ee:set-payload>
+				</ee:message>
+			</ee:transform>
+		</on-error-propagate>
+		<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="1bd3eac9-eeea-439e-ae8f-71db9e5fcbd9" type="HTTP:CONNECTIVITY">
+			<ee:transform doc:name="Transform Message" doc:id="a2961bc5-0e9e-4ee3-bb3f-7f7f1fae32eb" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+	"Message" : "Something Went wrong at the Internal Server"
+}]]></ee:set-payload>
+				</ee:message>
+			</ee:transform>
+		</on-error-continue>
+		<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="fc63ff90-daa5-4ee4-8d3c-7a2f12a37059" type="HTTP:NOT_FOUND">
+			<ee:transform doc:name="Transform Message" doc:id="415c7298-91bf-470f-af06-6acd300453be" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+	"Message" :" 404 Not Found"
+}]]></ee:set-payload>
+				</ee:message>
+			</ee:transform>
+		</on-error-propagate>
+		<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="6c1defb2-0291-4df2-826e-794b3014367d" type="HTTP:TIMEOUT">
+			<ee:transform doc:name="Transform Message" doc:id="a8c53a3f-7ba5-4b28-a257-48b456fcd4a1" >
+				<ee:message >
+					<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"Message" : "Timeout"
+}]]></ee:set-payload>
+				</ee:message>
+			</ee:transform>
+		</on-error-propagate>
+	</error-handler>
+</mule>
